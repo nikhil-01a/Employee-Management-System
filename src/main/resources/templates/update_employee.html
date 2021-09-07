@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Management System</title>
+
+<link rel="stylesheet" 
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+		crossorigin="anonymous">
+<style type="text/css">
+h3 
+{
+	padding-top:  20px;
+	padding-bottom : 20px;
+}
+#padd
+{
+	padding-bottom: 40px;
+}
+</style>
+</head>
+<body>
+	<div class= "container my-4">
+	<div align="center">
+		<h2>Employee Management System</h2>
+	</div>
+		<hr>
+		<div class="container my-4">
+		<h3>Update Employee details</h3>
+		<form id="padd" action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
+		
+			<!-- Add hidden form field to handle update (Tested! it doesnt change anything without it) -->			
+			<input type="hidden" th:field="*{id}" />
+			
+			<input type="text" th:field="*{firstName}"  class="form-control mb-4 col-4">
+			<input type="text" th:field="*{lastName}"  class="form-control mb-4 col-4">
+			<input type="text" th:field="*{email}"  class="form-control mb-4 col-4">
+			
+			<button type="submit" class="btn btn-warning btn-sm col-2">Update Employee </button>
+			
+		</form>
+		<hr>
+		<div align="Right">
+		<a th:href="@{/}" class="btn btn-light btn-sm">Back to employee list</a>
+		</div>
+		</div>
+	</div>	
+</body>
+</html>
